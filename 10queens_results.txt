@@ -1,0 +1,503 @@
+TESTING 10-QUEENS
+
+============================================================
+A. HILL CLIMBING SEARCH
+============================================================
+
+  Runs = 50
+    Success rate: 8.0%   Failure rate: 92.0%
+    Avg steps (success): 4.75
+    Avg steps (failure): 3.93
+
+  Runs = 100
+    Success rate: 11.0%   Failure rate: 89.0%
+    Avg steps (success): 5.09
+    Avg steps (failure): 3.88
+
+  Runs = 200
+    Success rate: 7.5%   Failure rate: 92.5%
+    Avg steps (success): 5.47
+    Avg steps (failure): 3.92
+
+  Runs = 500
+    Success rate: 6.2%   Failure rate: 93.8%
+    Avg steps (success): 5.29
+    Avg steps (failure): 3.99
+
+  Runs = 1000
+    Success rate: 6.8%   Failure rate: 93.2%
+    Avg steps (success): 5.15
+    Avg steps (failure): 3.96
+
+  Runs = 1500
+    Success rate: 6.6%   Failure rate: 93.4%
+    Avg steps (success): 5.38
+    Avg steps (failure): 3.99
+
+  --- Search sequences from four random initial configurations ---
+
+  Sequence 1:
+		Initial state (conflicts=11):
+		1 0 0 0 0 0 0 0 1 0
+		0 0 1 0 0 1 0 0 0 0
+		0 0 0 0 0 0 0 0 0 0
+		0 0 0 0 0 0 0 0 0 0
+		0 0 0 0 0 0 0 0 0 0
+		0 1 0 0 0 0 0 0 0 1
+		0 0 0 0 0 0 1 1 0 0
+		0 0 0 0 0 0 0 0 0 0
+		0 0 0 1 1 0 0 0 0 0
+		0 0 0 0 0 0 0 0 0 0
+		Queen Positions: [0, 5, 1, 8, 8, 1, 6, 6, 0, 5]
+		Conflicts: 11
+
+	Local minimum at step 4 (conflicts=2)
+
+	Final configuration:
+			0 0 0 0 0 0 0 0 1 0
+			0 0 1 0 0 0 0 0 0 0
+			0 0 0 0 0 1 0 0 0 0
+			0 1 0 0 0 0 0 0 0 0
+			0 0 0 0 0 0 1 0 0 0
+			0 0 0 0 0 0 0 0 0 1
+			0 0 0 0 0 0 0 1 0 0
+			0 0 0 0 0 0 0 0 0 0
+			0 0 0 1 1 0 0 0 0 0
+			1 0 0 0 0 0 0 0 0 0
+			Queen Positions: [9, 3, 1, 8, 8, 2, 4, 6, 0, 5]
+			Conflicts: 2
+
+  Sequence 2:
+		Initial state (conflicts=12):
+		0 0 0 0 0 0 0 0 0 0
+		0 0 0 0 0 0 0 0 0 0
+		0 0 0 0 1 0 0 0 0 0
+		1 0 0 0 0 1 0 1 0 0
+		0 0 0 0 0 0 0 0 0 0
+		0 0 0 1 0 0 1 0 0 0
+		0 0 0 0 0 0 0 0 0 0
+		0 0 0 0 0 0 0 0 0 0
+		0 1 0 0 0 0 0 0 0 1
+		0 0 1 0 0 0 0 0 1 0
+		Queen Positions: [3, 8, 9, 5, 2, 3, 5, 3, 9, 8]
+		Conflicts: 12
+
+	Local minimum at step 5 (conflicts=2)
+
+	Final configuration:
+			0 0 0 0 0 1 0 0 0 0
+			0 1 0 0 0 0 0 0 0 0
+			0 0 0 0 1 0 0 0 0 0
+			0 0 0 0 0 0 0 1 0 0
+			1 0 0 0 0 0 0 0 0 0
+			0 0 0 1 0 0 0 0 0 0
+			0 0 0 0 0 0 1 0 0 0
+			0 0 1 0 0 0 0 0 0 0
+			0 0 0 0 0 0 0 0 0 1
+			0 0 0 0 0 0 0 0 1 0
+			Queen Positions: [4, 1, 7, 5, 2, 0, 6, 3, 9, 8]
+			Conflicts: 2
+
+  Sequence 3:
+		Initial state (conflicts=9):
+		1 0 0 0 0 0 0 0 1 0
+		0 0 0 0 0 0 0 1 0 0
+		0 0 0 0 0 1 0 0 0 0
+		0 0 0 0 0 0 0 0 0 1
+		0 1 0 0 0 0 0 0 0 0
+		0 0 0 0 0 0 0 0 0 0
+		0 0 0 1 0 0 0 0 0 0
+		0 0 1 0 0 0 0 0 0 0
+		0 0 0 0 0 0 0 0 0 0
+		0 0 0 0 1 0 1 0 0 0
+		Queen Positions: [0, 4, 7, 6, 9, 2, 9, 1, 0, 3]
+		Conflicts: 9
+
+	Local minimum at step 4 (conflicts=1)
+
+	Final configuration:
+			0 0 0 0 0 0 0 0 1 0
+			1 0 0 0 0 0 0 0 0 0
+			0 0 0 0 0 1 0 0 0 0
+			0 0 0 0 0 0 0 0 0 1
+			0 1 0 0 0 0 0 0 0 0
+			0 0 0 0 0 0 1 0 0 0
+			0 0 0 1 0 0 0 0 0 0
+			0 0 0 0 0 0 0 1 0 0
+			0 0 1 0 0 0 0 0 0 0
+			0 0 0 0 1 0 0 0 0 0
+			Queen Positions: [1, 4, 8, 6, 9, 2, 5, 7, 0, 3]
+			Conflicts: 1
+
+  Sequence 4:
+		Initial state (conflicts=10):
+		0 0 0 0 0 0 0 0 0 0
+		0 0 0 0 0 1 0 0 0 0
+		0 0 0 0 0 0 0 0 0 0
+		0 0 0 0 0 0 0 0 0 0
+		0 1 1 1 0 0 0 0 0 0
+		0 0 0 0 0 0 1 0 0 0
+		1 0 0 0 0 0 0 0 0 1
+		0 0 0 0 0 0 0 0 0 0
+		0 0 0 0 0 0 0 0 1 0
+		0 0 0 0 1 0 0 1 0 0
+		Queen Positions: [6, 4, 4, 4, 9, 1, 5, 9, 8, 6]
+		Conflicts: 10
+
+	Solution found in 4 steps!
+
+	Step 0:
+			0 0 0 0 0 0 0 0 0 0
+			0 0 0 0 0 1 0 0 0 0
+			0 0 0 0 0 0 0 0 0 0
+			0 0 0 0 0 0 0 0 0 0
+			0 1 1 1 0 0 0 0 0 0
+			0 0 0 0 0 0 1 0 0 0
+			1 0 0 0 0 0 0 0 0 1
+			0 0 0 0 0 0 0 0 0 0
+			0 0 0 0 0 0 0 0 1 0
+			0 0 0 0 1 0 0 1 0 0
+			Queen Positions: [6, 4, 4, 4, 9, 1, 5, 9, 8, 6]
+			Conflicts: 10
+
+	Step 1:
+			0 0 1 0 0 0 0 0 0 0
+			0 0 0 0 0 1 0 0 0 0
+			0 0 0 0 0 0 0 0 0 0
+			0 0 0 0 0 0 0 0 0 0
+			0 1 0 1 0 0 0 0 0 0
+			0 0 0 0 0 0 1 0 0 0
+			1 0 0 0 0 0 0 0 0 1
+			0 0 0 0 0 0 0 0 0 0
+			0 0 0 0 0 0 0 0 1 0
+			0 0 0 0 1 0 0 1 0 0
+			Queen Positions: [6, 4, 0, 4, 9, 1, 5, 9, 8, 6]
+			Conflicts: 5
+
+	Step 2:
+			0 0 1 0 0 0 0 0 0 0
+			0 0 0 0 0 1 0 0 0 0
+			0 0 0 0 0 0 0 1 0 0
+			0 0 0 0 0 0 0 0 0 0
+			0 1 0 1 0 0 0 0 0 0
+			0 0 0 0 0 0 1 0 0 0
+			1 0 0 0 0 0 0 0 0 1
+			0 0 0 0 0 0 0 0 0 0
+			0 0 0 0 0 0 0 0 1 0
+			0 0 0 0 1 0 0 0 0 0
+			Queen Positions: [6, 4, 0, 4, 9, 1, 5, 2, 8, 6]
+			Conflicts: 3
+
+	Step 3:
+			0 0 1 0 0 0 0 0 0 0
+			0 0 0 0 0 1 0 0 0 0
+			0 0 0 0 0 0 0 1 0 0
+			1 0 0 0 0 0 0 0 0 0
+			0 1 0 1 0 0 0 0 0 0
+			0 0 0 0 0 0 1 0 0 0
+			0 0 0 0 0 0 0 0 0 1
+			0 0 0 0 0 0 0 0 0 0
+			0 0 0 0 0 0 0 0 1 0
+			0 0 0 0 1 0 0 0 0 0
+			Queen Positions: [3, 4, 0, 4, 9, 1, 5, 2, 8, 6]
+			Conflicts: 2
+
+	Step 4:
+			0 0 1 0 0 0 0 0 0 0
+			0 0 0 0 0 1 0 0 0 0
+			0 0 0 0 0 0 0 1 0 0
+			1 0 0 0 0 0 0 0 0 0
+			0 0 0 1 0 0 0 0 0 0
+			0 0 0 0 0 0 1 0 0 0
+			0 0 0 0 0 0 0 0 0 1
+			0 1 0 0 0 0 0 0 0 0
+			0 0 0 0 0 0 0 0 1 0
+			0 0 0 0 1 0 0 0 0 0
+			Queen Positions: [3, 7, 0, 4, 9, 1, 5, 2, 8, 6]
+			Conflicts: 0
+
+============================================================
+B. HILL CLIMBING WITH SIDEWAYS MOVE
+============================================================
+
+  Runs = 50
+    Success rate: 18.0%   Failure rate: 82.0%
+    Avg steps (success): 6.33
+    Avg steps (failure): 54.54
+
+  Runs = 100
+    Success rate: 22.0%   Failure rate: 78.0%
+    Avg steps (success): 6.59
+    Avg steps (failure): 54.51
+
+  Runs = 200
+    Success rate: 20.0%   Failure rate: 80.0%
+    Avg steps (success): 6.15
+    Avg steps (failure): 54.46
+
+  Runs = 500
+    Success rate: 19.6%   Failure rate: 80.4%
+    Avg steps (success): 6.57
+    Avg steps (failure): 54.60
+
+  Runs = 1000
+    Success rate: 17.1%   Failure rate: 82.9%
+    Avg steps (success): 6.68
+    Avg steps (failure): 54.59
+
+  Runs = 1500
+    Success rate: 18.5%   Failure rate: 81.5%
+    Avg steps (success): 6.53
+    Avg steps (failure): 54.67
+
+  --- Search sequences from four random initial configurations ---
+
+  Sequence 1:
+		Initial state (conflicts=7):
+		0 0 0 1 0 0 0 0 0 0
+		0 0 0 0 0 0 1 0 0 0
+		0 1 1 0 0 0 0 0 0 0
+		0 0 0 0 0 0 0 0 0 0
+		1 0 0 0 0 0 0 0 0 0
+		0 0 0 0 0 0 0 0 0 0
+		0 0 0 0 0 0 0 1 0 0
+		0 0 0 0 1 1 0 0 0 1
+		0 0 0 0 0 0 0 0 0 0
+		0 0 0 0 0 0 0 0 1 0
+		Queen Positions: [4, 2, 2, 0, 7, 7, 1, 6, 9, 7]
+		Conflicts: 7
+
+	Solution found in 8 steps!
+
+	Step 0:
+			0 0 0 1 0 0 0 0 0 0
+			0 0 0 0 0 0 1 0 0 0
+			0 1 1 0 0 0 0 0 0 0
+			0 0 0 0 0 0 0 0 0 0
+			1 0 0 0 0 0 0 0 0 0
+			0 0 0 0 0 0 0 0 0 0
+			0 0 0 0 0 0 0 1 0 0
+			0 0 0 0 1 1 0 0 0 1
+			0 0 0 0 0 0 0 0 0 0
+			0 0 0 0 0 0 0 0 1 0
+			Queen Positions: [4, 2, 2, 0, 7, 7, 1, 6, 9, 7]
+			Conflicts: 7
+
+	Step 1:
+			0 0 0 1 0 0 0 0 0 0
+			0 0 0 0 0 0 1 0 0 0
+			0 0 1 0 0 0 0 0 0 0
+			0 0 0 0 0 0 0 0 0 0
+			1 0 0 0 0 0 0 0 0 0
+			0 0 0 0 0 0 0 0 0 0
+			0 0 0 0 0 0 0 1 0 0
+			0 0 0 0 1 1 0 0 0 1
+			0 1 0 0 0 0 0 0 0 0
+			0 0 0 0 0 0 0 0 1 0
+			Queen Positions: [4, 8, 2, 0, 7, 7, 1, 6, 9, 7]
+			Conflicts: 4
+
+	Step 2:
+			0 0 0 1 0 0 0 0 0 0
+			0 0 0 0 0 0 1 0 0 0
+			0 0 1 0 0 0 0 0 0 0
+			0 0 0 0 0 0 0 0 0 0
+			1 0 0 0 0 0 0 0 0 0
+			0 0 0 0 0 0 0 0 0 1
+			0 0 0 0 0 0 0 1 0 0
+			0 0 0 0 1 1 0 0 0 0
+			0 1 0 0 0 0 0 0 0 0
+			0 0 0 0 0 0 0 0 1 0
+			Queen Positions: [4, 8, 2, 0, 7, 7, 1, 6, 9, 5]
+			Conflicts: 2
+
+	Step 3:
+			0 0 0 1 0 0 0 0 0 0
+			0 0 0 0 0 0 1 0 0 0
+			0 0 1 0 0 0 0 0 0 0
+			0 0 0 0 0 1 0 0 0 0
+			1 0 0 0 0 0 0 0 0 0
+			0 0 0 0 0 0 0 0 0 1
+			0 0 0 0 0 0 0 1 0 0
+			0 0 0 0 1 0 0 0 0 0
+			0 1 0 0 0 0 0 0 0 0
+			0 0 0 0 0 0 0 0 1 0
+			Queen Positions: [4, 8, 2, 0, 7, 3, 1, 6, 9, 5]
+			Conflicts: 1
+
+	Step 4:
+			0 0 0 1 0 0 0 0 0 0
+			0 0 0 0 0 0 1 0 0 0
+			0 0 0 0 0 0 0 0 0 0
+			0 0 0 0 0 1 0 0 0 0
+			1 0 0 0 0 0 0 0 0 0
+			0 0 0 0 0 0 0 0 0 1
+			0 0 0 0 0 0 0 1 0 0
+			0 0 0 0 1 0 0 0 0 0
+			0 1 1 0 0 0 0 0 0 0
+			0 0 0 0 0 0 0 0 1 0
+			Queen Positions: [4, 8, 8, 0, 7, 3, 1, 6, 9, 5]
+			Conflicts: 1
+
+	Step 5:
+			0 0 0 1 0 0 0 0 0 0
+			0 0 0 0 0 0 1 0 0 0
+			0 0 0 0 0 0 0 0 0 0
+			0 0 0 0 0 1 0 0 0 0
+			1 0 1 0 0 0 0 0 0 0
+			0 0 0 0 0 0 0 0 0 1
+			0 0 0 0 0 0 0 1 0 0
+			0 0 0 0 1 0 0 0 0 0
+			0 1 0 0 0 0 0 0 0 0
+			0 0 0 0 0 0 0 0 1 0
+			Queen Positions: [4, 8, 4, 0, 7, 3, 1, 6, 9, 5]
+			Conflicts: 1
+
+	Step 6:
+			0 0 0 1 0 0 0 0 0 0
+			0 0 0 0 0 0 1 0 0 0
+			0 0 0 0 0 0 0 0 1 0
+			0 0 0 0 0 1 0 0 0 0
+			1 0 1 0 0 0 0 0 0 0
+			0 0 0 0 0 0 0 0 0 1
+			0 0 0 0 0 0 0 1 0 0
+			0 0 0 0 1 0 0 0 0 0
+			0 1 0 0 0 0 0 0 0 0
+			0 0 0 0 0 0 0 0 0 0
+			Queen Positions: [4, 8, 4, 0, 7, 3, 1, 6, 2, 5]
+			Conflicts: 1
+
+	Step 7:
+			0 0 0 1 0 0 0 0 0 0
+			0 0 0 0 0 0 1 0 0 0
+			0 0 0 0 0 0 0 0 1 0
+			0 0 0 0 0 1 0 0 0 0
+			1 0 1 0 0 0 0 0 0 0
+			0 0 0 0 0 0 0 0 0 0
+			0 0 0 0 0 0 0 1 0 0
+			0 0 0 0 1 0 0 0 0 0
+			0 1 0 0 0 0 0 0 0 0
+			0 0 0 0 0 0 0 0 0 1
+			Queen Positions: [4, 8, 4, 0, 7, 3, 1, 6, 2, 9]
+			Conflicts: 1
+
+	Step 8:
+			0 0 0 1 0 0 0 0 0 0
+			0 0 0 0 0 0 1 0 0 0
+			0 0 0 0 0 0 0 0 1 0
+			0 0 0 0 0 1 0 0 0 0
+			0 0 1 0 0 0 0 0 0 0
+			1 0 0 0 0 0 0 0 0 0
+			0 0 0 0 0 0 0 1 0 0
+			0 0 0 0 1 0 0 0 0 0
+			0 1 0 0 0 0 0 0 0 0
+			0 0 0 0 0 0 0 0 0 1
+			Queen Positions: [5, 8, 4, 0, 7, 3, 1, 6, 2, 9]
+			Conflicts: 0
+
+  Sequence 2:
+		Initial state (conflicts=10):
+		0 0 1 0 0 0 0 0 0 0
+		0 0 0 0 0 0 0 0 0 0
+		0 0 0 0 0 0 0 0 0 0
+		1 0 0 0 1 0 0 1 0 0
+		0 0 0 1 0 0 0 0 0 0
+		0 0 0 0 0 0 0 0 0 0
+		0 0 0 0 0 1 1 0 0 1
+		0 0 0 0 0 0 0 0 0 0
+		0 1 0 0 0 0 0 0 0 0
+		0 0 0 0 0 0 0 0 1 0
+		Queen Positions: [3, 8, 0, 4, 3, 6, 6, 3, 9, 6]
+		Conflicts: 10
+
+	Sideways limit reached at step 55
+
+	Final configuration:
+			0 0 1 0 0 0 0 0 0 0
+			0 0 0 0 0 0 0 1 0 0
+			0 0 0 0 0 0 0 0 0 1
+			1 0 0 0 0 0 0 0 0 0
+			0 0 0 1 0 0 0 0 0 0
+			0 0 0 0 0 0 0 0 1 0
+			0 0 0 0 1 0 1 0 0 0
+			0 0 0 0 0 0 0 0 0 0
+			0 1 0 0 0 0 0 0 0 0
+			0 0 0 0 0 1 0 0 0 0
+			Queen Positions: [3, 8, 0, 4, 6, 9, 6, 1, 5, 2]
+			Conflicts: 1
+
+  Sequence 3:
+		Initial state (conflicts=10):
+		0 0 0 0 0 0 0 1 0 0
+		0 0 0 0 0 1 0 0 0 0
+		0 0 0 0 0 0 0 0 0 0
+		0 1 0 0 0 0 0 0 0 0
+		1 0 0 0 0 0 0 0 0 0
+		0 0 0 1 1 0 0 0 0 0
+		0 0 1 0 0 0 0 0 0 0
+		0 0 0 0 0 0 0 0 0 0
+		0 0 0 0 0 0 1 0 1 1
+		0 0 0 0 0 0 0 0 0 0
+		Queen Positions: [4, 3, 6, 5, 5, 1, 8, 0, 8, 8]
+		Conflicts: 10
+
+	Sideways limit reached at step 55
+
+	Final configuration:
+			0 0 0 0 0 0 0 0 0 0
+			0 0 0 0 0 1 0 0 0 0
+			0 0 0 0 0 0 0 0 1 0
+			0 1 0 0 0 0 0 0 0 0
+			0 0 0 0 0 0 0 1 0 0
+			0 0 0 0 1 0 0 0 0 0
+			0 0 1 0 0 0 0 0 0 0
+			1 0 0 0 0 0 0 0 0 0
+			0 0 0 0 0 0 0 0 0 1
+			0 0 0 1 0 0 1 0 0 0
+			Queen Positions: [7, 3, 6, 9, 5, 1, 9, 4, 2, 8]
+			Conflicts: 1
+
+  Sequence 4:
+		Initial state (conflicts=17):
+		0 0 0 0 0 0 0 0 0 0
+		0 0 0 0 0 0 0 0 0 0
+		0 0 0 0 0 0 0 0 0 0
+		0 0 0 0 0 1 0 0 0 0
+		0 0 1 0 0 0 0 0 0 0
+		1 0 0 1 1 0 0 1 0 1
+		0 0 0 0 0 0 0 0 0 0
+		0 0 0 0 0 0 0 0 0 0
+		0 0 0 0 0 0 1 0 1 0
+		0 1 0 0 0 0 0 0 0 0
+		Queen Positions: [5, 9, 4, 5, 5, 3, 8, 5, 8, 5]
+		Conflicts: 17
+
+	Sideways limit reached at step 54
+
+	Final configuration:
+			0 0 0 1 0 0 0 0 0 0
+			0 0 0 0 0 0 1 0 0 0
+			0 0 0 0 0 0 0 0 0 1
+			0 0 0 0 0 1 0 0 0 0
+			0 0 1 0 0 0 0 0 0 0
+			1 0 0 0 0 0 0 0 0 0
+			0 0 0 0 0 0 0 1 0 0
+			0 0 0 0 0 0 0 0 0 0
+			0 0 0 0 1 0 0 0 0 0
+			0 1 0 0 0 0 0 0 1 0
+			Queen Positions: [5, 9, 4, 0, 8, 3, 1, 6, 9, 2]
+			Conflicts: 1
+
+============================================================
+C. RANDOM-RESTART HILL CLIMBING
+============================================================
+
+  (Averaged over 100 trials)
+
+  Without sideways move:
+    Avg restarts: 14.11
+    Avg total steps: 61.12
+
+  With sideways move:
+    Avg restarts: 4.79
+    Avg total steps: 268.04
