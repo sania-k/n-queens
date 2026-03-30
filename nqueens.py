@@ -125,7 +125,7 @@ class Problem:
 def hill_climbing(problem, use_sideways_moves=False): 
     '''
     Runs the hill climbing algorithm on an n-queens problem in order to find the 
-    best conflicuration (least conflicts).
+    best configuration (least conflicts).
 
     Returns (success bool, the number of steps that result took)
 
@@ -151,7 +151,7 @@ def hill_climbing(problem, use_sideways_moves=False):
         if best_conflicts > problem.conflicts:
             return False, steps 
 
-        # Local plateau/sholder has been found
+        # Local plateau/shoulder has been found
         if best_conflicts == problem.conflicts:
             # return failure if sideways moves aren't allowed
             if not use_sideways_moves:
@@ -186,6 +186,7 @@ def hill_climbing_random_restart(n=8, use_sideways_moves=False):
     restarts = 0
     total_steps = 0
 
+    # Loops until a solution is found
     while True:
         problem = Problem(n)
         success, steps = hill_climbing(problem, use_sideways_moves=use_sideways_moves)
@@ -199,7 +200,7 @@ def hill_climbing_random_restart(n=8, use_sideways_moves=False):
 
 def n_queens_stats(n=8, runs=100, use_sideways_moves=False):
     '''
-    Creats n_queens problems and runs hill climbing on them a given number of times.
+    Creates n_queens problems and runs hill climbing on them a given number of times.
 
     Returns dictionary object {success_rate, failure_rate, avg_steps_success, avg_steps_failure}
 
@@ -246,10 +247,7 @@ def print_hill_climbing_sequence(n=8, use_sideways_moves=False):
     '''
     problem = Problem(n)
 
-    # Store board states (not just conflicts)
-    board_states = [problem.queen_pos.copy()]
-
-    print(f"\t\tInitial state (conflicts={problem.conflicts}):")
+    print(f"\tInitial state (conflicts={problem.conflicts}):")
     problem.print_board("\t\t")
 
     steps = 0
@@ -257,6 +255,9 @@ def print_hill_climbing_sequence(n=8, use_sideways_moves=False):
     MAX_SIDEWAYS = n * 5
 
     success = False
+
+    # Track sequence of positions + conflicts
+    sequence = [(problem.queen_pos.copy(), problem.conflicts)]
 
     # Runs hill climbing until success or failure
     while True:
@@ -291,25 +292,20 @@ def print_hill_climbing_sequence(n=8, use_sideways_moves=False):
         problem.conflicts = best_conflicts
         steps += 1
 
-        # Save board state
-        board_states.append(problem.queen_pos.copy())
+        # Store only positions + conflicts
+        sequence.append((problem.queen_pos.copy(), problem.conflicts))
 
     # Once hill climbing is done, print out the details of the solution path
-    if success:
-        # Print all steps/boards
-        for i, state in enumerate(board_states):
-            print(f"\n\tStep {i}:")
-            temp = Problem(n)
-            temp.queen_pos = state
-            temp.calculate_conflicts()
-            temp.print_board("\t\t\t")
-    else:
-        # Print only final board, as failure most likely means it ran many more steps
-        print("\n\tFinal configuration:")
-        temp = Problem(n)
-        temp.queen_pos = board_states[-1]
-        temp.calculate_conflicts()
-        temp.print_board("\t\t\t")
+    print("\n\t--- Step Sequence ---")
+    for i, (pos, conf) in enumerate(sequence):
+        print(f"\tStep {i}: {pos} (conflicts={conf})")
+
+    # Print the final board
+    print("\n\tFinal configuration:")
+    temp = Problem(n)
+    temp.queen_pos = sequence[-1][0]
+    temp.calculate_conflicts()
+    temp.print_board("\t\t")
 
 
 class DualOutput:
