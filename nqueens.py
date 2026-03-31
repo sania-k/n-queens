@@ -240,7 +240,8 @@ def print_hill_climbing_sequence(n=8, use_sideways_moves=False):
     ''' 
     Runs hill climbing algorithm once and prints out details (conflict count, queen positions, boards). 
     
-    :param n: int Size on the nqueen boards 
+    :param n: int 
+        Size on the nqueen boards 
     :param runs: int 
         The number of times nqueens will run to determine average rates 
     :param use_sideways_moves: bool 
@@ -309,7 +310,9 @@ def print_hill_climbing_sequence(n=8, use_sideways_moves=False):
 
 
 class DualOutput:
-    """Write to both file and terminal simultaneously"""
+    """
+    Write outputs to both file and terminal simultaneously
+    """
     def __init__(self, file, terminal):
         self.terminal = terminal
         self.file = file
@@ -325,11 +328,18 @@ class DualOutput:
 
 def run_all(n):
     '''
-    Runs and prints all statistics required by the assignment
+    Runs all variations of nqueens multiple times (50, 100, 200, 500, 1000, 1500) and calculates
+    statistics for success rates, failure rates, average number of moves, and average number of
+    restarts when applicable. All results are then printed to the console
+
+    :param n: int
+        Specifies the size of the board
     '''
     print(f"TESTING {n}-QUEENS")
     
-    # -------------------------------------------------------------------------
+    # -------------------------------------------------------------------------    
+    # For basic hill climbing with/without sideways moves, nqueens hill climbing is run the requested 
+    # amount of times and calculations are run and printed
     print("\n" + "="*60)
     print("A. HILL CLIMBING SEARCH")
     print("="*60)
@@ -364,6 +374,8 @@ def run_all(n):
         print_hill_climbing_sequence(n=n, use_sideways_moves=True)
 
     # -------------------------------------------------------------------------
+    # For hill climbing with random restarts, nqueen hill climbing is run 100 times and statistics
+    # are calculated and printed
     print("\n" + "="*60)
     print("C. RANDOM-RESTART HILL CLIMBING")
     print("="*60)
